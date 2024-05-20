@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.paging.ui
+package com.example.android.codelabs.paging.ui.Adapter
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
+import com.example.android.codelabs.paging.ui.Viewholder.ReposLoadStateViewHolder
 
 class ReposLoadStateAdapter(
     private val retry: () -> Unit

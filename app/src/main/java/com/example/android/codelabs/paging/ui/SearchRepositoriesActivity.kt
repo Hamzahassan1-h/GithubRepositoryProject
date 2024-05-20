@@ -29,6 +29,14 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.codelabs.paging.databinding.ActivitySearchRepositoriesBinding
+import com.example.android.codelabs.paging.ui.Adapter.ReposAdapter
+import com.example.android.codelabs.paging.ui.Adapter.ReposLoadStateAdapter
+import com.example.android.codelabs.paging.ui.state.RemotePresentationState
+import com.example.android.codelabs.paging.ui.state.asRemotePresentationState
+import com.example.android.codelabs.paging.ui.viewmodel.SearchRepositoriesViewModel
+import com.example.android.codelabs.paging.ui.viewmodel.UiAction
+import com.example.android.codelabs.paging.ui.viewmodel.UiModel
+import com.example.android.codelabs.paging.ui.viewmodel.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
@@ -74,7 +82,7 @@ class SearchRepositoriesActivity : AppCompatActivity() {
 //     * and allows the UI to feed back user actions to it.
 //     */
       private fun ActivitySearchRepositoriesBinding.bindState(
-           uiState: StateFlow<UiState>,
+          uiState: StateFlow<UiState>,
           pagingData: Flow<PagingData<UiModel>>,
           uiActions: (UiAction) -> Unit
       ) {
@@ -140,7 +148,7 @@ class SearchRepositoriesActivity : AppCompatActivity() {
           repoAdapter: ReposAdapter,
           uiState: StateFlow<UiState>,
           pagingData: Flow<PagingData<UiModel>>,
-         onScrollChanged: (UiAction.Scroll) -> Unit
+          onScrollChanged: (UiAction.Scroll) -> Unit
       ) {
           retryButton.setOnClickListener { repoAdapter.retry() }
           list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
