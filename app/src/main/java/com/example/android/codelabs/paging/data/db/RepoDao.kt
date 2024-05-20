@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.codelabs.paging.db
+package com.example.android.codelabs.paging.data.db
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
@@ -36,6 +36,12 @@ interface RepoDao {
     )
     fun reposByName(queryString: String): PagingSource<Int, Repo>
 
+    @Query("SELECT * FROM repos WHERE name LIKE :query ")
+    suspend fun reposByNameSuspend (query : String) : List<Repo>
+
+    @Query("DELETE FROM repos WHERE name LIKE :query")
+    suspend fun clearRepos(query: String)
+
     @Query("DELETE FROM repos")
-    suspend fun clearRepos()
+    suspend fun clearAll()
 }

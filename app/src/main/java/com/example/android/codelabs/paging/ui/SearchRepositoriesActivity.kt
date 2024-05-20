@@ -75,6 +75,9 @@ class SearchRepositoriesActivity : AppCompatActivity() {
               pagingData = viewModel.pagingDataFlow,
               uiActions = viewModel.accept
           )
+//          binding.btnClearDb.setOnClickListener{
+//              viewModel.clearDatabase()
+//          }
       }
 
       /**

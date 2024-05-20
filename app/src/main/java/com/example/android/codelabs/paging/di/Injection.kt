@@ -20,7 +20,7 @@ package com.example.android.codelabs.paging.di
 import android.content.Context
 import com.example.android.codelabs.paging.api.GithubService
 import com.example.android.codelabs.paging.data.GithubRepository
-import com.example.android.codelabs.paging.db.RepoDatabase
+import com.example.android.codelabs.paging.data.db.RepoDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
